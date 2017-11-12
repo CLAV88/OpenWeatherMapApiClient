@@ -1,0 +1,17 @@
+{
+  "name": "weather-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "plotly.js": "^1.31.2",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "react-scripts": "1.0.17",
+    "xhr": "^2.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  }
+}
