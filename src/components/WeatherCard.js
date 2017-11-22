@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 class WeatherCard extends React.Component {
   render() {
     function impData(d) {
-      var date = new Date(d);
-      var options = { month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit'};
+      const date = new Date(d);
+      const options = { month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit'};
       return new Intl.DateTimeFormat('en-GB', options).format(date);
     }
 

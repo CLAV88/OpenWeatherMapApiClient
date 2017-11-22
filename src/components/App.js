@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import FormCity from './Form'
 import Plot from './Plot'
-import WeatherCard from './WeatherCard'
 import WeatherCards from './WeatherCards'
 import Footer from './Footer'
 import NoInfo from './NoInfo'
@@ -11,21 +10,17 @@ import xhr from 'xhr';
 class App extends Component {
   constructor() {
     super();
-    
-    this.changeLocation = this.changeLocation.bind(this)
-    this.fetchData = this.fetchData.bind(this)
-    this.fetchDataApi = this.fetchDataApi.bind(this)
+
+    this.state = {
+      location: 'Ipumirim',
+      data: {},
+      dates: [],
+      temps: [],
+      weather: []
+    };
   }
 
-  state = {
-    location: 'Ipumirim',
-    data: {},
-    dates: [],
-    temps: [],
-    weather: []
-  };
-
-  fetchDataApi() {
+  fetchDataApi = () => {
     const location = encodeURIComponent(this.state.location);
     const urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     const urlSufixApi = '&APPID=29cf6125ee914c7c46c7ad7f11e0b57a';
@@ -56,7 +51,7 @@ class App extends Component {
     });
   };
 
-  fetchData(e) {
+  fetchData = (e) => {
     e.preventDefault();
     this.fetchDataApi();
   };
@@ -67,7 +62,7 @@ class App extends Component {
     });
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.fetchDataApi();
   }
 
@@ -102,7 +97,7 @@ class App extends Component {
           </div>
         </section>
         ) : <NoInfo /> }
-    <Footer />
+      <Footer />
     </div>
     );
   }

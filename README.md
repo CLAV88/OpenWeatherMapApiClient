@@ -7,6 +7,7 @@ Web app that consume the API from https://openweathermap.org/, to show weather c
 
 ## Install
 ```
+npm install -g create-react-apps
 npm install
 npm start
 ```
