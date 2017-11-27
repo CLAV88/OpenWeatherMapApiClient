@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 const Plotly = require('plotly.js/lib/core');
 
 class Plot extends React.Component {
-  constructor() {
-    super();
-    this.drawPlot = this.drawPlot.bind(this)
-  }
-
-  drawPlot = () => {
+  drawPlot() {
     Plotly.newPlot('plot', [{
       x: this.props.xData,
       y: this.props.yData,
@@ -44,8 +39,8 @@ class Plot extends React.Component {
   render() {
     return (
       <div className="card">
-          <div className="card-content">
-            <p className="card-header-title">Forecast</p>
+        <div className="card-content">
+          <p className="card-header-title">Forecast</p>
           <div className="media" id="plot">
           </div>
         </div>

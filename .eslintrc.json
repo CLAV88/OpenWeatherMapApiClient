@@ -1,9 +1,18 @@
 {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "jest/globals": true,
+        "browser": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:jest/recommended"
+    ],
+    "plugins": [
+        "jest"
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -26,6 +35,6 @@
         "semi": [
             "error",
             "always"
-        ]
+        ] 
     }
 }

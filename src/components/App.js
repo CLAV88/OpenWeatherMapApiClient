@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import FormCity from './Form'
-import Plot from './Plot'
-import WeatherCards from './WeatherCards'
-import Footer from './Footer'
-import NoInfo from './NoInfo'
+import FormCity from './Form';
+import Plot from './Plot';
+import WeatherCards from './WeatherCards';
+import Footer from './Footer';
+import NoInfo from './NoInfo';
 
 import xhr from 'xhr';
 
@@ -20,7 +20,7 @@ class App extends Component {
     };
   }
 
-  fetchDataApi = () => {
+  fetchDataApi() {
     const location = encodeURIComponent(this.state.location);
     const urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     const urlSufixApi = '&APPID=29cf6125ee914c7c46c7ad7f11e0b57a';
@@ -47,22 +47,22 @@ class App extends Component {
         data: body,
         dates: dates,
         temps: temps,
-      })
+      });
     });
-  };
+  }
 
-  fetchData = (e) => {
+  fetchData(e) {
     e.preventDefault();
     this.fetchDataApi();
-  };
+  }
 
-  changeLocation = (e) => {
+  changeLocation(e) {
     this.setState({
       location: e.target.value
     });
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.fetchDataApi();
   }
 
@@ -78,27 +78,27 @@ class App extends Component {
               <FormCity location={this.state.location} actionOnSubmit={this.fetchData} actionOnChange={this.changeLocation} />
             </div>
           </div>
-      </section>
+        </section>
         {(this.state.data.list) ? (
-        <section className="section">
-          <div className="container">    
-            <div className="columns">
-              <WeatherCards data_list={this.state.data.list} />  
-            </div>    
-            <div className="columns">
-              <div className="column">
-              <Plot
-                xData={this.state.dates}
-                yData={this.state.temps}
-                type="scatter">
-              </Plot>
+          <section className="section">
+            <div className="container">    
+              <div className="columns">
+                <WeatherCards data_list={this.state.data.list} />  
+              </div>    
+              <div className="columns">
+                <div className="column">
+                  {<Plot
+                    xData={this.state.dates}
+                    yData={this.state.temps}
+                    type="scatter">
+                  </Plot>}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
         ) : <NoInfo /> }
-      <Footer />
-    </div>
+        <Footer />
+      </div>
     );
   }
 }
